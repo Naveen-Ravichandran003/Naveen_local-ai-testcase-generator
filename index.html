@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLAST | Local LLM Test Case Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <div class="glass-background"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <span class="logo-icon">⚡</span>
+                <div class="header-text">
+                    <h1>Test Case Generator</h1>
+                    <p class="subtitle">AI-powered test case generator</p>
+                </div>
+            </div>
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span class="status-text">ONLINE</span>
+            </div>
+        </header>
+
+        <!-- Input Section -->
+        <section class="input-card">
+            <div class="input-header">
+                <label for="userInput">Input: User Story / Requirements</label>
+                <button id="exampleBtn" class="text-link">Try Example Input</button>
+            </div>
+            <div class="input-wrapper">
+                <textarea id="userInput" placeholder="Enter user story or requirement here..." autofocus></textarea>
+            </div>
+
+            <div class="controls-area" style="justify-content: flex-end;">
+                <button id="generateBtn" class="primary-btn">
+                    <span>Generate Test Cases</span>
+                    <span class="btn-icon">▶</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Output Section -->
+        <section class="output-card">
+            <div class="output-header">
+                <h2>Generated Test Cases</h2>
+                <div class="output-actions hidden" id="outputActions">
+                    <button class="action-btn" id="copyBtn" title="Copy to Clipboard">📋 Copy</button>
+                    <button class="action-btn" id="downloadBtn" title="Download Report">💾 Download</button>
+                </div>
+            </div>
+            <div class="output-content" id="outputContent">
+                <div class="placeholder-state">
+                    <span class="placeholder-icon">▤</span>
+                    <p>Enter requirements above and click Generate to see results.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
