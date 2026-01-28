@@ -57,6 +57,20 @@ graph TD
 
 ---
 
+---
+
+## 📸 Screenshots
+
+| Home Page | Generating |
+|:---:|:---:|
+| ![Home](screenshot_0.png) | ![Loading](screenshot_3.png) |
+
+| Result View | Generated Output |
+|:---:|:---:|
+| ![Results](screenshot_1.png) | ![Output](screenshot_2.png) |
+
+---
+
 ## ✨ Key Features
 *   **100% Local & Private**: No data is sent to the cloud. Perfect for enterprise or sensitive projects.
 *   **Smart PDF Export**: Instantly generate timestamped PDF reports (`Test_Cases_Report_MM-DD-YYYY...pdf`).
