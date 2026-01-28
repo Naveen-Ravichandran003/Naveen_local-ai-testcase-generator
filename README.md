@@ -69,7 +69,7 @@ graph TD
 |:---:|:---:|
 | ![Results](screenshot_1.png) | ![Output](screenshot_2.png) |
 
-> **📄 [Download Sample PDF Report](Sample_Test_Cases.pdf)**
+> **📄 [Download Test Case Generated Report](Test_Case_Generated_Report.pdf)**
 
 ---
 
