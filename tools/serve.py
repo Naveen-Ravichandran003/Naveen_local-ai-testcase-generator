@@ -3,7 +3,7 @@ import socketserver
 import os
 import webbrowser
 
-PORT = 3001
+PORT = 3002
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -21,7 +21,7 @@ def run_server():
     os.chdir('..')
     
     with socketserver.TCPServer(("", PORT), Handler) as httpd:
-        print(f"🚀 BLAST Server started at http://localhost:{PORT}")
+        print(f"BLAST Server started at http://localhost:{PORT}")
         print("Press Ctrl+C to stop.")
         webbrowser.open(f"http://localhost:{PORT}")
         try:
