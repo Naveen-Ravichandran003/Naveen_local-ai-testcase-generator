@@ -16,14 +16,14 @@ graph TD
         Ollama[("🦙 Ollama AI Service (Port 11434)")]
     end
 
-    User((👤 User)) -->|1. Opens http://localhost:3001| Browser
-    ServeScript -->|2. Serves HTML/CSS/JS| Browser
+    User((👤 User)) -->|"1. Opens http://localhost:3001"| Browser
+    ServeScript -->|"2. Serves HTML/CSS/JS"| Browser
     
-    Browser -->|3. Users Enters Requirements| Browser
-    Browser -->|4. Sends Prompt (POST)| Ollama
-    Ollama -->|5. Returns Test Cases (JSON)| Browser
+    Browser -->|"3. Users Enters Requirements"| Browser
+    Browser -->|"4. Sends Prompt (POST)"| Ollama
+    Ollama -->|"5. Returns Test Cases (JSON)"| Browser
     
-    Browser -->|6. Renders Cards & PDF| User
+    Browser -->|"6. Renders Cards & PDF"| User
 ```
 
 ### 🖼️ Visual Flow (ASCII)
