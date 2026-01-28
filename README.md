@@ -129,4 +129,9 @@ Project Root/
 *   **404 Errors**: Ensure you are running the `serve.py` script from the **Project Root** directory.
 
 ---
-*Generated with ❤️ by Antigravity Agent*
+
+## 📜 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
