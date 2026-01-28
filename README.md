@@ -4,60 +4,9 @@ A privacy-focused, offline-capable AI tool for generating comprehensive software
 
 ---
 
-## 🏗️ Architecture
-
-The application follows a **Decentralized Client-Server** architecture where the frontend interacts directly with the local AI service, bypassing the need for a heavy backend server.
-
-```mermaid
-graph TD
-    subgraph "User Environment (Local Machine)"
-        Browser[("🌐 Web Browser (Frontend)")]
-        ServeScript[("📜 PowerShell Server (Port 3001)")]
-        Ollama[("🦙 Ollama AI Service (Port 11434)")]
-    end
-
-    User((👤 User)) -->|"1. Opens http://localhost:3001"| Browser
-    ServeScript -->|"2. Serves HTML/CSS/JS"| Browser
-    
-    Browser -->|"3. Users Enters Requirements"| Browser
-    Browser -->|"4. Sends Prompt (POST)"| Ollama
-    Ollama -->|"5. Returns Test Cases (JSON)"| Browser
-    
-    Browser -->|"6. Renders Cards & PDF"| User
-```
-
-### 🖼️ Visual Flow (ASCII)
-```text
-+-------------------+           +----------------------------+
-|   👤 User         |           |   💻 Local Machine         |
-+-------------------+           |                            |
-          |                     |    +------------------+    |
-   1. Open Browser              |    | 🌐 Browser (UI)  |    |
-          v                     |    | (index.html)     |    |
-+-------------------+           |    +--------+---------+    |
-| 🌐 http://localhost| <------->+|            |             |
-|       :3001       |     2. Serves Assets    | 3. Send Prompt (POST)
-+-------------------+            |    +--------v---------+    |
-                                |    | 🦙 Ollama API    |    |
-                                |    | (Port 11434)     |    |
-                                |    +--------+---------+    |
-                                |            |               |
-                                |     4. JSON Response       |
-                                |            |               |
-                                |    +--------v---------+    |
-                                |    | 📄 JS PDF Gen    |    |
-                                |    +------------------+    |
-                                +----------------------------+
-```
-
-### 🧩 Core Components
-1.  **Frontend (UI)**: Vanilla HTML5, CSS3 (Cyberpunk/Neon Theme), and JavaScript. Handles all logic, state management, and PDF generation (via `jsPDF`).
-2.  **Server (Host)**: A lightweight `PowerShell` script (`serve.ps1`) that uses .NET's `HttpListener` to serve static files locally.
-3.  **Intelligence (AI)**: **Ollama** running the `tinyllama` model (or any compatible model) to process natural language requirements into structured test cases.
-
 ---
 
----
+## � Screenshots
 
 ## 📸 Screenshots
 
