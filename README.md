@@ -14,7 +14,7 @@ The application follows a **Decentralized Client-Server** architecture where the
 graph TD
     subgraph "User Environment (Local Machine)"
         Browser[("🌐 Web Browser (Frontend)")]
-        ServeScript[("📜 PowerShell Server (Port 3001)")]
+        ServeScript[("� Python Server (Port 3001)")]
         Ollama[("🦙 Ollama AI Service (Port 11434)")]
     end
 
@@ -54,7 +54,7 @@ graph TD
 
 ### 🧩 Core Components
 1.  **Frontend (UI)**: Vanilla HTML5, CSS3 (Cyberpunk/Neon Theme), and JavaScript. Handles all logic, state management, and PDF generation (via `jsPDF`).
-2.  **Server (Host)**: A lightweight `PowerShell` script (`serve.ps1`) that uses .NET's `HttpListener` to serve static files locally.
+2.  **Server (Host)**: A simple `Python` script (`serve.py`) that uses `http.server` to serve static files locally.
 3.  **Intelligence (AI)**: **Ollama** running the `tinyllama` model (or any compatible model) to process natural language requirements into structured test cases.
 
 ---
@@ -95,11 +95,11 @@ graph TD
 ### Installation & Run
 1.  **Clone/Download** this repository.
 2.  **Start the Server**:
-    *   Open PowerShell (Run as Administrator is recommended but not strictly required for the script itself, though needed for the CORS setup step).
-    *   Navigate to the project directory.
+    *   Ensure you have Python installed.
+    *   Open terminal in project directory.
     *   Run: 
-        ```powershell
-        powershell -ExecutionPolicy Bypass -File .\tools\serve.ps1
+        ```bash
+        python tools/serve.py
         ```
 3.  **Access the App**:
     *   Open your browser and verify the server address from the terminal output (e.g., `http://localhost:3001`).
