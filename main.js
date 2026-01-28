@@ -10,21 +10,27 @@ const OLLAMA_API = 'http://localhost:11434/api/generate';
 const MODEL = 'tinyllama';
 
 // Behavioral Template - Updated for multiple test cases
-const SYSTEM_PROMPT = `You are a professional QA Engineer. Generative at least 5 to 7 detailed test cases for the user's input.
-Include Functional, Edge, and Negative scenarios.
+const SYSTEM_PROMPT = `You are an expert QA Engineer. Generate 5-7 HIGH-QUALITY, detailed test cases for the user's input.
+Include a mix of:
+1. Positive/Functional scenarios
+2. Negative/Error-handling scenarios
+3. Edge cases/Boundary values
 
-Follow this exact structure for EACH test case:
+For EACH test case, provide EXPLICIT, step-by-step instructions. Do not combine actions.
+
+Use this EXACT format:
 TC-XXX
-Title: [Concise Title]
+Title: [Actionable Title]
 Priority: [High/Medium/Low]
-Preconditions: [List preconditions]
+Preconditions: [What must be true before starting]
 Steps:
-1. [Step 1]
-2. [Step 2]
+1. [First specific action]
+2. [Second specific action]
+3. [Third specific action]
 ...
-Expected Result: [Expected Outcome]
+Expected Result: [The exact outcome after all steps]
 
-Ensure you output multiple test cases (TC-001, TC-002, etc.) separated clearly.`;
+Separate test cases with horizontal lines (---) or clear headers.`;
 
 // 1. Generate Logic
 generateBtn.addEventListener('click', async () => {
@@ -33,11 +39,11 @@ generateBtn.addEventListener('click', async () => {
 
     // UI Loading State
     generateBtn.disabled = true;
-    generateBtn.innerHTML = '<span>Processing...</span><span class="btn-icon">⏳</span>';
+    generateBtn.innerHTML = '<span>Generating...</span><span class="btn-icon">⏳</span>';
     outputContent.innerHTML = `
         <div class="placeholder-state" style="opacity: 0.7;">
             <span class="placeholder-icon" style="animation: spin 2s linear infinite;">⚙️</span>
-            <p><strong>Generating Test Cases...</strong></p>
+            <p><strong>Crafting Detailed Test Cases...</strong></p>
         </div>
         <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
     `;
@@ -76,41 +82,76 @@ generateBtn.addEventListener('click', async () => {
 
 // 2. Parser Logic
 function parseTestCases(text) {
-    // Improved Regex to catch multiple formats of TC headers
-    const blocks = text.split(/(?=TC[-_]?\d+|Test Case \d+)/i).filter(b => b.trim().length > 20);
+    // Split by TC header
+    const blocks = text.split(/(?=TC[-_]?\d+|Test Case \d+)/i).filter(b => b.trim().length > 30);
 
     if (blocks.length === 0) {
-        // Fallback if regex fails - display raw text nicely
         return `<div class="test-case-card"><div class="tc-title">Generated Output</div><pre style="white-space: pre-wrap; font-family: sans-serif; color: #ccc;">${text}</pre></div>`;
     }
 
     return blocks.map((block, index) => {
         const lines = block.split('\n').map(l => l.trim()).filter(l => l);
 
-        // Smarter Title Extraction
-        let titleLine = lines.find(l => l.toLowerCase().startsWith('title:')) || lines[0] || "Test Case";
-        let title = titleLine.replace(/^(Title:|TC[-_]?\d+|Test Case \d+[:.]?)/i, '').trim();
+        // Section Extraction
+        const titleLine = lines.find(l => l.toLowerCase().startsWith('title:')) || lines[0];
+        const title = titleLine.replace(/^(Title:|TC[-_]?\d+|Test Case \d+[:.]?)/i, '').trim();
 
-        // Fallback title if empty
-        if (title.length < 5) title = "Functional Verification";
+        const priorityLine = lines.find(l => l.toLowerCase().startsWith('priority:'));
+        const priority = priorityLine ? priorityLine.replace(/^Priority:/i, '').trim() : 'Medium';
 
-        const type = title.toLowerCase().includes('error') || title.toLowerCase().includes('invalid') ? 'Negative' : 'Functional';
+        // Extract Steps - find everything between "Steps:" and "Expected Result:"
+        let steps = [];
+        let capturingSteps = false;
+        for (const line of lines) {
+            if (line.toLowerCase().startsWith('steps:')) {
+                capturingSteps = true;
+                continue;
+            }
+            if (line.toLowerCase().startsWith('expected')) {
+                capturingSteps = false;
+                continue;
+            }
+            if (capturingSteps) {
+                // Remove numbers or dashes at start
+                const cleanStep = line.replace(/^\d+[\.\)]|-|>/, '').trim();
+                if (cleanStep) steps.push(cleanStep);
+            }
+        }
+
+        // If no steps found by section, fallback to regex
+        if (steps.length === 0) {
+            steps = lines.filter(l => /^\d+[\.\)]/.test(l) || l.startsWith('-') || l.startsWith('>'))
+                .map(l => l.replace(/^\d+[\.\)]|-|>/, '').trim());
+        }
+
+        const expectedResult = lines.find(l => l.toLowerCase().startsWith('expected'))?.replace(/^Expected Result:?/i, '').trim()
+            || 'Verify behavior as per requirements.';
+
+        const isNegative = title.toLowerCase().includes('error') ||
+            title.toLowerCase().includes('invalid') ||
+            title.toLowerCase().includes('fail') ||
+            expectedResult.toLowerCase().includes('error');
+
+        const type = isNegative ? 'Negative' : 'Functional';
 
         return `
             <div class="test-case-card">
                 <div class="tc-header">
                     <span>TC_${String(index + 1).padStart(3, '0')}</span>
-                    <span style="color: var(--neon-cyan); border: 1px solid var(--neon-cyan); padding: 0 4px; border-radius: 4px; font-size: 0.7rem;">${type}</span>
+                    <div style="display: flex; gap: 8px;">
+                        <span style="color: #aaa; font-size: 0.7rem; text-transform: uppercase;">${priority} Priority</span>
+                        <span style="color: var(--neon-cyan); border: 1px solid var(--neon-cyan); padding: 0 4px; border-radius: 4px; font-size: 0.7rem;">${type}</span>
+                    </div>
                 </div>
-                <div class="tc-title">${title}</div>
+                <div class="tc-title">${title || 'Verification Step'}</div>
                 
                 <div class="tc-steps">
                     <strong>Steps:</strong>
                     <ul>
-                         ${lines.filter(l => /^\d+\./.test(l) || l.startsWith('-')).slice(0, 8).map(l => `<li>${l.replace(/^\d+\.|-/, '').trim()}</li>`).join('')}
+                        ${steps.length > 0 ? steps.map(s => `<li>${s}</li>`).join('') : '<li>Perform actions specified in requirement.</li>'}
                     </ul>
                 </div>
-                <div class="tc-expected">${lines.find(l => l.toLowerCase().startsWith('expected'))?.replace(/^Expected Result:/i, '') || 'Verify expected outcome per requirements.'}</div>
+                <div class="tc-expected">${expectedResult}</div>
             </div>
         `;
     }).join('');
