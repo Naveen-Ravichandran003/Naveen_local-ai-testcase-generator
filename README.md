@@ -4,8 +4,6 @@ A privacy-focused, offline-capable AI tool for generating comprehensive software
 
 ---
 
----
-
 ## 🏗️ Architecture
 
 The application follows a **Decentralized Client-Server** architecture where the frontend interacts directly with the local AI service, bypassing the need for a heavy backend server.
@@ -14,11 +12,11 @@ The application follows a **Decentralized Client-Server** architecture where the
 graph TD
     subgraph "User Environment (Local Machine)"
         Browser[("🌐 Web Browser (Frontend)")]
-        ServeScript[("� Python Server (Port 3001)")]
+        ServeScript[("🐍 Python Server (Port 3002)")]
         Ollama[("🦙 Ollama AI Service (Port 11434)")]
     end
 
-    User((👤 User)) -->|"1. Opens http://localhost:3001"| Browser
+    User((👤 User)) -->|"1. Opens http://localhost:3002"| Browser
     ServeScript -->|"2. Serves HTML/CSS/JS"| Browser
     
     Browser -->|"3. Users Enters Requirements"| Browser
@@ -38,7 +36,7 @@ graph TD
           v                     |    | (index.html)     |    |
 +-------------------+           |    +--------+---------+    |
 | 🌐 http://localhost| <------->+|            |             |
-|       :3001       |     2. Serves Assets    | 3. Send Prompt (POST)
+|       :3002       |     2. Serves Assets    | 3. Send Prompt (POST)
 +-------------------+            |    +--------v---------+    |
                                 |    | 🦙 Ollama API    |    |
                                 |    | (Port 11434)     |    |
@@ -78,7 +76,7 @@ graph TD
 *   **Smart PDF Export**: Instantly generate timestamped PDF reports (`Test_Cases_Report_MM-DD-YYYY...pdf`).
 *   **Cyberpunk Speed UI**: A high-performance, neon-styled interface designed for focus and speed.
 *   **Multi-Vector Generation**: Automatically generates 5-7 detailed test cases (Functional, Edge, Negative) from a single prompt.
-*   **Cross-Platform**: Runs on any Windows machine with PowerShell (no heavy backend required).
+*   **Cross-Platform**: Runs on any Windows machine with Python (no heavy backend required).
 
 ---
 
@@ -102,7 +100,7 @@ graph TD
         python tools/serve.py
         ```
 3.  **Access the App**:
-    *   Open your browser and verify the server address from the terminal output (e.g., `http://localhost:3001`).
+    *   Open your browser and navigate to the address shown in terminal (e.g., `http://localhost:3002`).
 
 ---
 
@@ -111,16 +109,16 @@ graph TD
 ```text
 Project Root/
 ├── tools/
-│   ├── serve.ps1          # PowerShell Web Server
-│   ├── verify_link.ps1    # Setup Verification Tool
-│   └── export_tests.ps1   # CLI Export Tool
+│   └── serve.py           # Python Web Server
+├── architecture/
+│   ├── SOP_Generation_Logic.md
+│   └── SOP_UI_State.md
 ├── index.html             # Main Application Structure
 ├── style.css              # Cyberpunk Visual Styles
 ├── main.js                # Frontend Logic & API Integration
-├── README.md              # Documentation
 ├── BLAST.md               # Development Protocol
-├── architecture/          # Technical SOPs
-└── findings.md            # Research & Troubleshooting Log
+├── README.md              # Documentation
+└── Test_Case_Generated_Report.pdf # Sample Output
 ```
 
 ---
@@ -128,7 +126,7 @@ Project Root/
 ## 🔧 Troubleshooting
 
 *   **"Ollama connection failed"**: Ensure Ollama is running (`ollama serve`) and the `OLLAMA_ORIGINS` variable is set correctly.
-*   **404 Errors**: Ensure you are running the `serve.ps1` script from the **Project Root** directory.
+*   **404 Errors**: Ensure you are running the `serve.py` script from the **Project Root** directory.
 
 ---
 *Generated with ❤️ by Antigravity Agent*
