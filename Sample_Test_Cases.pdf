@@ -1,0 +1,424 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 3318
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 18 Tf
+20.6999999999999993 TL
+0 g
+56.6929133858267775 785.1970866141732586 Td
+(Generated Test Cases Report) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0.392 g
+56.6929133858267775 762.5199212598424765 Td
+(Generated on: 1/28/2026, 7:11:55 AM) Tj
+ET
+0.9 g
+56.6929133858267775 742.6774015748030706 481.8897637795275841 -22.677165354330711 re
+f
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0. g
+62.3622047244094517 728.5041732283464171 Td
+(TC_001: Following this exact structure for each test case:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+70.8661417322834666 700.15771653543311 Td
+(Steps:) Tj
+T* () Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+70.8661417322834666 657.6380314960629221 Td
+(Expected: Verify expected outcome per requirements.) Tj
+ET
+0.9 g
+56.6929133858267775 615.1183464566928478 481.8897637795275841 -22.677165354330711 re
+f
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0. g
+62.3622047244094517 600.9451181102361943 Td
+(TC_002: Login with Invaleid) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+70.8661417322834666 572.5986614173227736 Td
+(Steps:) Tj
+T* (Ensure the email id entered is valid \(i.e., @example.com\)) Tj
+T* (Click on "Remember Me" button in order to authenticate the user) Tj
+T* (Enter "invalid-email-id@example.com" in the email field and click on submit button) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+70.8661417322834666 501.7325196850393354 Td
+(Expected: Verify expected outcome per requirements.) Tj
+ET
+0.9 g
+56.6929133858267775 459.2128346456692043 481.8897637795275841 -22.677165354330711 re
+f
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0. g
+62.3622047244094517 445.0396062992125508 Td
+(TC_003: Login with Valid Email ID) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+70.8661417322834666 416.69314960629913 Td
+(Steps:) Tj
+T* (Ensure the email id entered is valid \(i.e., @example.com\)) Tj
+T* (Click on "Remember Me" button in order to authenticate the user) Tj
+T* (Enter "valid-email-id@example.com" in the email field and click on submit button) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+70.8661417322834666 345.8270078740156919 Td
+(Expected: Verify expected outcome per requirements.) Tj
+ET
+0.9 g
+56.6929133858267775 303.3073228346455608 481.8897637795275841 -22.677165354330711 re
+f
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0. g
+62.3622047244094517 289.1340944881889072 Td
+(TC_004: Login Without Password) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+70.8661417322834666 260.7876377952754865 Td
+(Steps:) Tj
+T* (Ensure the password entered is valid \(i.e., @example.com\)) Tj
+T* (Click on "Remember Me" button in order to authenticate the user) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+70.8661417322834666 204.0947244094487587 Td
+(Expected: Verify expected outcome per requirements.) Tj
+ET
+0.9 g
+56.6929133858267775 161.575039370078656 481.8897637795275841 -22.677165354330711 re
+f
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0. g
+62.3622047244094517 147.4018110236219172 Td
+(TC_005: Login with Invaleid and Negative Email ID) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+70.8661417322834666 119.0553543307086102 Td
+(Steps:) Tj
+T* (Ensure the email id entered is valid \(i.e., @example.com\)) Tj
+T* (Click on "Remember Me" button in order to authenticate the user) Tj
+T* (Enter "negative-email-id@example.com" in the email field and click on submit button) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+70.8661417322834666 48.1892125984251152 Td
+(Expected: Verify expected outcome per requirements.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 613
+>>
+stream
+0.5670000000000001 w
+0 G
+0.9 g
+56.6929133858267775 799.3703149606299121 481.8897637795275841 -22.677165354330711 re
+f
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0. g
+62.3622047244094517 785.1970866141732586 Td
+(TC_006: Login with Invaleid and Negative Password) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+70.8661417322834666 756.8506299212598378 Td
+(Steps:) Tj
+T* (Ensure the password entered is valid \(i.e., @example.com\)) Tj
+T* (Click on "Remember Me" button in order to authenticate the user) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+70.8661417322834666 700.15771653543311 Td
+(Expected: Verify expected outcome per requirements.) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R ]
+/Count 2
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+/F4 10 0 R
+/F5 11 0 R
+/F6 12 0 R
+/F7 13 0 R
+/F8 14 0 R
+/F9 15 0 R
+/F10 16 0 R
+/F11 17 0 R
+/F12 18 0 R
+/F13 19 0 R
+/F14 20 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+21 0 obj
+<<
+/Producer (jsPDF 2.5.1)
+/CreationDate (D:20260128071155+05'30')
+>>
+endobj
+22 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 23
+0000000000 65535 f 
+0000004323 00000 n 
+0000006148 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000003522 00000 n 
+0000003659 00000 n 
+0000004386 00000 n 
+0000004511 00000 n 
+0000004641 00000 n 
+0000004774 00000 n 
+0000004912 00000 n 
+0000005036 00000 n 
+0000005165 00000 n 
+0000005297 00000 n 
+0000005433 00000 n 
+0000005561 00000 n 
+0000005688 00000 n 
+0000005817 00000 n 
+0000005950 00000 n 
+0000006052 00000 n 
+0000006398 00000 n 
+0000006484 00000 n 
+trailer
+<<
+/Size 23
+/Root 22 0 R
+/Info 21 0 R
+/ID [ <088E4AE563CB16324A631F5AE5EF6983> <088E4AE563CB16324A631F5AE5EF6983> ]
+>>
+startxref
+6588
+%%EOF

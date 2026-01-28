@@ -18,6 +18,8 @@ A privacy-focused, offline-capable AI tool for generating comprehensive software
 |:---:|:---:|
 | ![Results](screenshot_1.png) | ![Output](screenshot_2.png) |
 
+> **📄 [Download Sample PDF Report](Sample_Test_Cases.pdf)**
+
 ---
 
 ## ✨ Key Features
