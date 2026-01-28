@@ -4,7 +4,8 @@ import os
 import webbrowser
 
 PORT = 3002
-DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+# Set directory to project root (one level up from tools/)
+DIRECTORY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
